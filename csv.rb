@@ -4,13 +4,6 @@
 # path
 csv_path = "./input.csv"
 
-obj = {
-  "test"=> [1,2,3,4,5,6,7,8,9]
-}
-
-p obj["test"]
-
-
 def main(path)
   file_name = File.basename("output.txt")
 
@@ -26,6 +19,15 @@ def main(path)
           output.write(value + ",")
         end
         output.write("\n")
+      end
+
+      data_array.transpose[1..-1].each do |value|
+        sums = 0
+        value[1..-1].each do |amount|
+          sums += amount.to_f
+        end
+        p value[0].to_s + "の合計は" + sums.to_s + "です"
+        output.write("\n" + value[0].to_s + "の合計は" + sums.to_s + "です")
       end
     end
   end
