@@ -15,9 +15,7 @@ def main(path)
 
     open(file_name, "w") do |output|
       data_array.transpose.each do |line|
-        line.each do |value|
-          output.write(value + ",")
-        end
+        output.write(line.join(","))
         output.write("\n")
       end
 
